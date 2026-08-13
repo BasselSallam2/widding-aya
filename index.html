@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF8F4">
+  <title>دعوة — Ethereal Classic | فؤاد & آيه</title>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #FFFFF5;
+      --champagne: #F5EDE3;
+      --beige: #E8DFD4;
+      --warm-white: #FAF8F4;
+      --olive: #4A3728;
+      --olive-deep: #3A2A1E;
+      --stone: #7A7068;
+      --taupe: #A8947E;
+      --sand: #C4B5A5;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--olive);
+      overflow-x: hidden;
+      min-height: 100dvh;
+      background: var(--warm-white);
+    }
+
+    /* Draped silk / satin background */
+    .silk {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        linear-gradient(118deg, transparent 38%, rgba(255,255,255,0.55) 44%, transparent 50%),
+        linear-gradient(242deg, transparent 32%, rgba(255,255,255,0.35) 40%, transparent 46%),
+        linear-gradient(168deg, transparent 55%, rgba(232,223,212,0.45) 62%, transparent 68%),
+        radial-gradient(ellipse 90% 70% at 18% 12%, rgba(255,255,255,0.65), transparent 58%),
+        radial-gradient(ellipse 80% 60% at 82% 88%, rgba(245,237,227,0.7), transparent 55%),
+        radial-gradient(ellipse 60% 45% at 55% 45%, rgba(255,255,245,0.4), transparent 50%),
+        linear-gradient(175deg, var(--ivory) 0%, var(--champagne) 42%, var(--beige) 100%);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; z-index: 2;
+      min-height: 100dvh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 2.5rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 360px;
+      width: 100%;
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .hero-title {
+      font-family: "Aref Ruqaa", serif;
+      font-size: clamp(2.8rem, 12vw, 4rem);
+      font-weight: 400;
+      line-height: 1.5;
+      color: #4A3728;
+      -webkit-text-fill-color: #4A3728;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-divider {
+      width: 3rem;
+      height: 1px;
+      margin: 0 auto 1.25rem;
+      background: linear-gradient(90deg, transparent, var(--taupe), transparent);
+    }
+
+    .hero-names {
+      font-family: "Aref Ruqaa", serif;
+      font-size: clamp(2rem, 8vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.4;
+      color: #4A3728;
+      -webkit-text-fill-color: #4A3728;
+      margin-bottom: 2rem;
+    }
+
+    .hero-scroll {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--stone);
+      animation: gentle-bob 2.8s ease-in-out infinite;
+    }
+    @keyframes gentle-bob {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(4px); opacity: 1; }
+    }
+
+
+    /* ── Invitation ── */
+    .invite {
+      position: relative; z-index: 1;
+      max-width: 440px; margin: 0 auto;
+      padding: 1rem 1.25rem 4rem;
+    }
+    .glass-panel {
+      background: rgba(255, 255, 245, 0.88);
+      border: 1px solid rgba(196,181,165,0.45);
+      border-radius: 6px;
+      padding: 2rem 1.35rem 2.25rem;
+      box-shadow:
+        0 20px 50px rgba(74,55,40,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    }
+    .photo {
+      width: 100%; display: block; margin-bottom: 2rem;
+      aspect-ratio: 4/5; object-fit: cover;
+      border-radius: 18px;
+      border: 1.5px solid rgba(196,181,165,0.45);
+      box-shadow: 0 12px 36px rgba(74,55,40,0.12);
+    }
+    .bismillah {
+      text-align: center; font-family: "Playfair Display", serif;
+      font-size: 1.05rem; color: var(--stone); margin-bottom: 1.25rem;
+    }
+    .verse {
+      text-align: center; font-family: "Playfair Display", serif;
+      font-style: italic; font-size: 0.95rem; line-height: 2;
+      font-weight: 600;
+      padding: 1.35rem 0.5rem; margin-bottom: 1.75rem;
+      border-top: 1px solid rgba(196,181,165,0.4);
+      border-bottom: 1px solid rgba(196,181,165,0.4);
+      background: rgba(255,255,240,0.2);
+      border-radius: 4px;
+    }
+    .invite-ar { text-align: center; line-height: 1.9; font-size: 0.95rem; font-weight: 600; }
+    .names {
+      font-family: "Playfair Display", serif;
+      text-align: center; font-size: clamp(1.5rem, 6vw, 2rem);
+      font-weight: 500; color: var(--olive); margin: 1rem 0 1.25rem;
+    }
+    .countdown {
+      text-align: center;
+      margin: 0 0 1.75rem;
+      padding: 1.15rem 1rem 1.25rem;
+      border: 1px solid rgba(196,181,165,0.45);
+      border-radius: 4px;
+      background: rgba(255,255,245,0.55);
+    }
+    .countdown-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.65rem;
+    }
+    .countdown-grid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: clamp(0.5rem, 3vw, 1rem);
+      direction: ltr;
+    }
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 3.25rem;
+    }
+    .countdown-num {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.6rem, 7vw, 2.1rem);
+      font-weight: 500;
+      color: var(--olive-deep);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+      margin-bottom: 0.45rem;
+    }
+    .countdown-unit-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .countdown-sep {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.4rem, 6vw, 1.9rem);
+      font-weight: 500;
+      color: var(--taupe);
+      line-height: 1;
+      padding-top: 0.1rem;
+      opacity: 0.6;
+    }
+    .countdown-done {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      color: var(--olive);
+      direction: ltr;
+    }
+    .details {
+      margin: 1.5rem 0;
+      background: rgba(255,255,240,0.28);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 18px;
+      padding: 0.35rem 1.15rem;
+    }
+    .detail {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(154,144,136,0.22);
+      font-size: 0.9rem;
+      display: flex; justify-content: space-between; gap: 1rem;
+    }
+    .detail:last-child { border-bottom: none; }
+    .detail .label {
+      font-size: 0.65rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--stone);
+    }
+    .detail a { color: var(--olive); font-weight: 500; }
+    .closing {
+      text-align: center; line-height: 1.9; font-size: 0.9rem;
+      color: rgba(74,55,40,0.7); margin-top: 1.5rem;
+    }
+    .section-en {
+      direction: ltr; text-align: center;
+      margin-top: 2.25rem; padding-top: 1.75rem;
+      border-top: 1px solid rgba(196,181,165,0.35);
+    }
+    .section-en p {
+      font-size: 0.88rem; line-height: 1.85;
+      color: rgba(74,55,40,0.7); margin-bottom: 0.5rem;
+    }
+    .names-en {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem; margin: 0.75rem 0 1.25rem;
+    }
+    .map-btn {
+      display: block; text-align: center; margin-top: 1.75rem; padding: 1rem;
+      background: rgba(74,55,40,0.78);
+      backdrop-filter: blur(12px);
+      color: var(--ivory); text-decoration: none;
+      font-size: 0.75rem; letter-spacing: 0.1em;
+      border-radius: 16px; font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background 0.25s, transform 0.2s;
+    }
+    .map-btn:hover { background: var(--olive); transform: translateY(-1px); }
+    .map-btn.alt {
+      margin-top: 0.65rem;
+      background: rgba(196,181,165,0.55);
+      color: var(--olive);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .map-btn.alt:hover { background: var(--taupe); }
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 2rem;
+      font-size: 0.7rem; letter-spacing: 0.2em;
+      color: var(--stone); direction: ltr;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-scroll { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="silk" aria-hidden="true"></div>
+
+  <audio id="bgMusic" src="bark_PbPjIwaF.mp3" loop preload="auto" autoplay playsinline></audio>
+
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">نتشرف بدعوتكم</h1>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <p class="hero-names">فؤاد &amp; آيه</p>
+    </div>
+  </section>
+
+  <main class="invite" id="invite">
+    <article class="glass-panel">
+      <img class="photo" src="https://i.postimg.cc/0QpRQyZT/Gemini-Generated-Image-sho8kosho8kosho8.png" alt="فؤاد وآيه" width="400" height="500" loading="eager">
+      <p class="bismillah">بسم الله الرحمن الرحيم</p>
+      <blockquote class="verse">"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنْفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"</blockquote>
+      <p class="invite-ar">بكل الحب والسعادة، نتشرف بدعوتكم لحضور حفل كتب كتاب</p>
+      <h1 class="names">فؤاد خالد &amp; آيه الحريري</h1>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <p class="countdown-label">الوقت المتبقي</p>
+        <div class="countdown-grid" id="countdownGrid">
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cdDays">--</span>
+            <span class="countdown-unit-label">Days</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cdHours">--</span>
+            <span class="countdown-unit-label">Hours</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cdMinutes">--</span>
+            <span class="countdown-unit-label">Minutes</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cdSeconds">--</span>
+            <span class="countdown-unit-label">Seconds</span>
+          </div>
+        </div>
+        <p class="countdown-done" id="countdownDone" hidden>اليوم يومنا</p>
+      </div>
+      <div class="details">
+        <div class="detail"><span class="label">التاريخ</span><span>الخميس 10-09-2026</span></div>
+        <div class="detail"><span class="label">الوقت</span><span>8:00 مساءً</span></div>
+        <div class="detail"><span class="label">المكان</span><span>مسجد الشرطة - التجمع الأول</span></div>
+        <div class="detail"><span class="label">اللوكيشن</span><span><a href="https://maps.app.goo.gl/rZRHXVPBSStcEZRv7?g_st=iw" target="_blank" rel="noopener">افتح الموقع</a></span></div>
+      </div>
+      <p class="closing">وجودكم بيننا هو أجمل ما يكتمل به فرحنا، ونسعد بمشاركتكم لنا هذه اللحظة المميزة.<br>بارك الله لنا ولكم، وجمع بيننا في خير ومحبة.</p>
+      <section class="section-en" lang="en">
+        <p>With grateful hearts and endless happiness, we invite you to celebrate the Wedding Contract Ceremony of</p>
+        <h2 class="names-en">Fouad Khaled &amp; Aya Osama</h2>
+        <div class="details">
+          <div class="detail"><span class="label">Date</span><span>Thursday, 10-09-2026</span></div>
+          <div class="detail"><span class="label">Time</span><span>8:00 PM</span></div>
+          <div class="detail"><span class="label">Venue</span><span>Police Mosque - 1st Settlement</span></div>
+          <div class="detail"><span class="label">Map</span><span><a href="https://maps.app.goo.gl/rZRHXVPBSStcEZRv7?g_st=iw" target="_blank" rel="noopener">Open location</a></span></div>
+        </div>
+        <p style="margin-top:1.25rem">May Allah bless our union with love, mercy, and happiness.</p>
+      </section>
+      <a class="map-btn" href="https://maps.app.goo.gl/rZRHXVPBSStcEZRv7?g_st=iw" target="_blank" rel="noopener">Open Location</a>
+      <a class="map-btn alt" href="https://maps.app.goo.gl/rZRHXVPBSStcEZRv7?g_st=iw" target="_blank" rel="noopener">View on Map</a>
+    </article>
+  </main>
+  <footer>Ethereal Union — Classic</footer>
+
+  <script>
+    (function () {
+      const audio = document.getElementById('bgMusic');
+      if (!audio) return;
+      audio.volume = 0.55;
+      function play() { audio.play().catch(function () {}); }
+      play();
+      document.addEventListener('click', play, { once: true });
+      document.addEventListener('touchstart', play, { once: true, passive: true });
+      window.addEventListener('scroll', play, { once: true, passive: true });
+    })();
+
+    (function () {
+      const target = new Date('2026-09-10T20:00:00+02:00');
+      const grid = document.getElementById('countdownGrid');
+      const doneEl = document.getElementById('countdownDone');
+      const cdDays = document.getElementById('cdDays');
+      const cdHours = document.getElementById('cdHours');
+      const cdMinutes = document.getElementById('cdMinutes');
+      const cdSeconds = document.getElementById('cdSeconds');
+
+      function pad(n) {
+        return String(n).padStart(2, '0');
+      }
+
+      function tick() {
+        const diff = target.getTime() - Date.now();
+        if (diff <= 0) {
+          grid.hidden = true;
+          doneEl.hidden = false;
+          return;
+        }
+        const totalSec = Math.floor(diff / 1000);
+        const days = Math.floor(totalSec / 86400);
+        const hours = Math.floor((totalSec % 86400) / 3600);
+        const minutes = Math.floor((totalSec % 3600) / 60);
+        const seconds = totalSec % 60;
+        cdDays.textContent = pad(days);
+        cdHours.textContent = pad(hours);
+        cdMinutes.textContent = pad(minutes);
+        cdSeconds.textContent = pad(seconds);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+</body>
+</html>
