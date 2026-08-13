@@ -432,6 +432,26 @@
       tick();
       setInterval(tick, 1000);
     })();
+
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      let userScrolled = false;
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 10) userScrolled = true;
+      }, { passive: true });
+
+      setTimeout(function () {
+        if (userScrolled) return;
+        const nudge = Math.min(window.innerHeight * 0.16, 120);
+        window.scrollTo({ top: nudge, behavior: 'smooth' });
+        setTimeout(function () {
+          if (!userScrolled) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }, 850);
+      }, 2000);
+    })();
   </script>
 </body>
 </html>
