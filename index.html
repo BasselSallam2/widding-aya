@@ -123,22 +123,25 @@
     /* ── Invitation ── */
     .invite {
       position: relative; z-index: 1;
-      max-width: 440px; margin: 0 auto;
+      max-width: min(92vw, 480px); margin: 0 auto;
       padding: 1rem 1.25rem 4rem;
     }
     .glass-panel {
       background: rgba(255, 255, 245, 0.88);
       border: 1px solid rgba(196,181,165,0.45);
       border-radius: 6px;
-      padding: 2rem 1.35rem 2.25rem;
+      padding: 1.25rem 1.35rem 2.25rem;
       box-shadow:
         0 20px 50px rgba(74,55,40,0.1),
         inset 0 1px 0 rgba(255,255,255,0.9);
     }
     .photo {
-      width: 100%; display: block; margin-bottom: 2rem;
-      aspect-ratio: 4/5; object-fit: cover;
-      border-radius: 18px;
+      display: block;
+      width: calc(100% + 2.7rem);
+      max-width: none;
+      height: auto;
+      margin: 0 -1.35rem 2rem;
+      border-radius: 12px;
       border: 1.5px solid rgba(196,181,165,0.45);
       box-shadow: 0 12px 36px rgba(74,55,40,0.12);
     }
@@ -289,7 +292,7 @@
 <body>
   <div class="silk" aria-hidden="true"></div>
 
-  <audio id="bgMusic" src="bark_PbPjIwaF.mp3" loop preload="auto" autoplay playsinline></audio>
+  <audio id="bgMusic" src="bark_PbPjIwaF.mp3" loop preload="auto" playsinline webkit-playsinline></audio>
 
   <section class="hero" id="hero">
     <div class="hero-inner">
@@ -340,7 +343,7 @@
       <p class="closing">وجودكم بيننا هو أجمل ما يكتمل به فرحنا، ونسعد بمشاركتكم لنا هذه اللحظة المميزة.<br>بارك الله لنا ولكم، وجمع بيننا في خير ومحبة.</p>
       <section class="section-en" lang="en">
         <p>With grateful hearts and endless happiness, we invite you to celebrate the Wedding Contract Ceremony of</p>
-        <h2 class="names-en">Fouad Khaled &amp; Aya Osama</h2>
+        <h2 class="names-en">Fouad Khaled &amp; Aya Elhariry</h2>
         <div class="details">
           <div class="detail"><span class="label">Date</span><span>Thursday, 10-09-2026</span></div>
           <div class="detail"><span class="label">Time</span><span>8:00 PM</span></div>
@@ -359,12 +362,40 @@
     (function () {
       const audio = document.getElementById('bgMusic');
       if (!audio) return;
+
       audio.volume = 0.55;
-      function play() { audio.play().catch(function () {}); }
-      play();
-      document.addEventListener('click', play, { once: true });
-      document.addEventListener('touchstart', play, { once: true, passive: true });
-      window.addEventListener('scroll', play, { once: true, passive: true });
+      let playing = false;
+
+      function tryPlay() {
+        if (playing) return;
+        const attempt = audio.play();
+        if (!attempt) return;
+        attempt.then(function () {
+          playing = true;
+        }).catch(function () {});
+      }
+
+      function unlock() {
+        if (playing) return;
+        if (audio.readyState < 2) {
+          audio.load();
+        }
+        tryPlay();
+      }
+
+      const events = ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown', 'scroll'];
+      events.forEach(function (name) {
+        document.addEventListener(name, unlock, { capture: true, passive: true });
+        window.addEventListener(name, unlock, { capture: true, passive: true });
+      });
+
+      audio.addEventListener('canplaythrough', tryPlay, { once: true });
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) tryPlay();
+      });
+
+      audio.load();
+      tryPlay();
     })();
 
     (function () {
